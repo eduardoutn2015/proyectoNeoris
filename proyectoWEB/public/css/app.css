@@ -1,9 +1,19 @@
 * {
     box-sizing: border-box;
   }
-
+  
 body {
     background-color: #f1f1f1;
+}
+  
+.formulario{
+  
+    background-color: #ffffff;
+    margin: 5em auto;
+    font-family: Raleway;
+    padding: 40px;
+    width: 80%;
+    min-width: 300px;
 }
   
 h2{
@@ -30,4 +40,3 @@ header{
     bottom: 0px;
     width: 100%;
 }
-
