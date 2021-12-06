@@ -27,10 +27,17 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="">Inicio <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="mascotas/nueva">Subir adopcion</a>
-                    <a class="nav-item nav-link" href="mascotas">Mostrar mascotas</a>
-                    <a class="nav-item nav-link" href="iniciarSesion">Iniciar Sesion</a>
+                    <a class="nav-item nav-link" href="/proyectoNeoris/proyectoWEB/public">Inicio <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="/proyectoNeoris/proyectoWEB/public/mascotas/nueva">Subir adopcion</a>
+                    <a class="nav-item nav-link" href="/proyectoNeoris/proyectoWEB/public/mascotas">Mostrar mascotas</a>
+
+                    @if($sesion)
+                        <a class="nav-item nav-link" href="/proyectoNeoris/proyectoWEB/public/login">Bienvenido usuario: {{$username}}</a>
+                        <a class="nav-item nav-link" href="/proyectoNeoris/proyectoWEB/public/logout">Log out</a>
+                    @else
+                        <a class="nav-item nav-link" href="/proyectoNeoris/proyectoWEB/public/login">Iniciar Sesion</a>
+                    @endif
+
                 </div>
             </div>
         </div>    
