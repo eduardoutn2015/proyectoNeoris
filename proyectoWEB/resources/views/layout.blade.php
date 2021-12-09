@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="icon" href="/icono/iconPata.ico">
         <script src="https://kit.fontawesome.com/816b172e21.js" crossorigin="anonymous"></script>
+        <link href="{{ asset('/css/mostradoMascotas.css') }}" rel="stylesheet" type="text/css">
 
         <title>Adoptame.com</title>
     </head>
@@ -32,10 +33,14 @@
                     <a class="nav-item nav-link" href="/proyectoNeoris/proyectoWEB/public/mascotas">Mostrar mascotas</a>
 
                     @if($sesion)
-                        <a class="nav-item nav-link" href="/proyectoNeoris/proyectoWEB/public/login">Bienvenido usuario: {{$username}}</a>
+                        <a class="nav-item nav-link" href="/proyectoNeoris/proyectoWEB/public">Bienvenido usuario: {{$username}}</a>
                         <a class="nav-item nav-link" href="/proyectoNeoris/proyectoWEB/public/logout">Log out</a>
+                            @if($admin)
+                            <a class="nav-item nav-link" href="/proyectoNeoris/proyectoWEB/public/mascotas/administrar">Administrar publicaciones</a>
+                            @endif
                     @else
                         <a class="nav-item nav-link" href="/proyectoNeoris/proyectoWEB/public/login">Iniciar Sesion</a>
+                        <a class="nav-item nav-link" href="/proyectoNeoris/proyectoWEB/public/register">Registrarme</a>
                     @endif
 
                 </div>

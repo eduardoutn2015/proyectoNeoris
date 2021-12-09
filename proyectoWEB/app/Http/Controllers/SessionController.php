@@ -11,10 +11,13 @@ class SessionController extends Controller
     public function formularioLogIn(Request $request)
     {
         $sesionIniciada = $request->session()->has('username');
+        $usuarioAdmin = $request->session()->has('admin');
         $username = $request->session()->get('username','default');
+        
         $parametros =[
             'sesion' => $sesionIniciada,
-            'username' => $username
+            'username' => $username,
+            'admin' => $usuarioAdmin
         ];
         
         if($sesionIniciada){
@@ -28,14 +31,24 @@ class SessionController extends Controller
 
     public function formularioRegistrarse(Request $request){
         
+
         $sesionIniciada = $request->session()->has('username');
+        $usuarioAdmin = $request->session()->has('admin');
         $username = $request->session()->get('username','default');
+        
         $parametros =[
             'sesion' => $sesionIniciada,
-            'username' => $username
+            'username' => $username,
+            'admin' => $usuarioAdmin
         ];
         
-        return view('registrarUsuario', $parametros);
+        if($sesionIniciada){
+            return redirect('/');
+        }else{
+            return view('registrarUsuario', $parametros);
+        }
+        
+        
 
     }
 
@@ -48,9 +61,17 @@ class SessionController extends Controller
             ->where("username","=", $usuario)
             ->where("password","=", $contra)
             ->get();
+        
+        $usuarioAdmin = DB::table("usuarios")
+            ->join("administradores","id","=","id_usuario")
+            ->where("username","=", $usuario)
+            ->get();
 
         if(count($usuarioCreado) > 0){
             $request->session()->put('username',$usuario);
+            if(count($usuarioAdmin) > 0){
+                $request->session()->put('admin',$usuario);
+            }
             return redirect('/');
         }else{     
             return redirect('/login');
@@ -61,14 +82,38 @@ class SessionController extends Controller
 
     public function registroUsuario(Request $request){
         $usuario = $request->post("username");
-        $email = $request->post("mail");
         $contra = $request->post("password");
 
+        $nombre = $request->post("nombre");
+        $apellido = $request->post("apellido");
+        $ciudad = $request->post("ciudad");
+
+        $mail = $request->post("mail");
+        $telefono = $request->post("telefono");
+
         try{
+
+            $usuarioCreado = DB::table("usuarios")
+            ->where("username","=", $usuario)
+            ->orWhere("mail","=", $mail)
+            ->get();
+
+            if(count($usuarioCreado) > 0){
+                return redirect('/register');
+            }
+
+
             DB::table("usuarios")->insert([
+                
                 "username" => $usuario,
-                "mail" => $email,
-                "password" => $contra
+                "password" => $contra,
+
+                "nombre" => $nombre,
+                "apellido" => $apellido,
+                "ciudad" => $ciudad,
+
+                "mail" => $mail,
+                "telefono" => $telefono
             ]);
     
             return redirect('/login');

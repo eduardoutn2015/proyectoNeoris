@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class AdopcionController extends Controller
@@ -10,10 +10,13 @@ class AdopcionController extends Controller
     {
 
         $sesionIniciada = $request->session()->has('username');
+        $usuarioAdmin = $request->session()->has('admin');
         $username = $request->session()->get('username','default');
+        
         $parametros =[
             'sesion' => $sesionIniciada,
-            'username' => $username
+            'username' => $username,
+            'admin' => $usuarioAdmin
         ];
         
         if($sesionIniciada){

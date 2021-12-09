@@ -10,10 +10,13 @@ class HomeController extends Controller
     {
 
         $sesionIniciada = $request->session()->has('username');
+        $usuarioAdmin = $request->session()->has('admin');
         $username = $request->session()->get('username','default');
+        
         $parametros =[
             'sesion' => $sesionIniciada,
-            'username' => $username
+            'username' => $username,
+            'admin' => $usuarioAdmin
         ];
         if($sesionIniciada){
             return view('home',$parametros);
