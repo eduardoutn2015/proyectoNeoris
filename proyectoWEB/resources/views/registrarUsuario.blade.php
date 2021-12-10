@@ -4,7 +4,7 @@
 
     <section>
             <h2 align="center">Registrarme</h2>
-            <form name="registrarUsuario-form" class="registrarUsuario-form" action="" method="post">
+            <form name="registrarUsuario-form" class="registrarUsuario-form" action="/proyectoNeoris/proyectoWEB/public/login" method="post">
                 @csrf
                 <br>
                 <table align="center">

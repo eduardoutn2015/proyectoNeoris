@@ -5,12 +5,11 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdopcionController;
 use App\Http\Controllers\SessionController;
 
-Route::resource('/',HomeController::class)->only('index');
+Route::get('/',[HomeController::class, 'index']);
+Route::get('/adopciones/nueva', [AdopcionController::class, 'formularioAdopcion']);
+Route::get('/adopciones', [AdopcionController::class, 'mostrarAdopciones']);
+Route::post('/adopciones', [AdopcionController::class, 'registrarAdopcion']);
 
-//lo de mostrar las mascotas falta retocar
-Route::resource('/mascotas',HomeController::class)->only('index');
-
-Route::resource('/mascotas/nueva', AdopcionController::class);
 
 
 Route::get('/login', [SessionController::class, 'formularioLogIn']);

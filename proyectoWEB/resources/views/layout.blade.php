@@ -29,8 +29,10 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-item nav-link" href="/proyectoNeoris/proyectoWEB/public">Inicio <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="/proyectoNeoris/proyectoWEB/public/mascotas/nueva">Subir adopcion</a>
-                    <a class="nav-item nav-link" href="/proyectoNeoris/proyectoWEB/public/mascotas">Mostrar mascotas</a>
+                    <a class="nav-item nav-link" href="/proyectoNeoris/proyectoWEB/public/adopciones">Adopciones</a>
+                    <a class="nav-item nav-link" href="/proyectoNeoris/proyectoWEB/public/adopciones/nueva">Subir adopcion</a>
+                    <a class="nav-item nav-link" href="/proyectoNeoris/proyectoWEB/public/mascotas">Mascotas</a>
+                    <a class="nav-item nav-link" href="/proyectoNeoris/proyectoWEB/public/mascotas/nueva">Registrar Mascota</a>
 
                     @if($sesion)
                         <a class="nav-item nav-link" href="/proyectoNeoris/proyectoWEB/public">Bienvenido usuario: {{$username}}</a>

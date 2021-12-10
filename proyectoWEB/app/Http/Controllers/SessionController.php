@@ -83,11 +83,9 @@ class SessionController extends Controller
     public function registroUsuario(Request $request){
         $usuario = $request->post("username");
         $contra = $request->post("password");
-
         $nombre = $request->post("nombre");
         $apellido = $request->post("apellido");
         $ciudad = $request->post("ciudad");
-
         $mail = $request->post("mail");
         $telefono = $request->post("telefono");
 
