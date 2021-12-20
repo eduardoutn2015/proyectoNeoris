@@ -19,21 +19,20 @@
                     <th>
                         Id
                     </th>
+                    
                     <th>
                         Nombre
                     </th>
+
                     <th>
                         TipoAnimal
                     </th>
                     <th>
                         Descripcion
                     </th>
-                    <th>
-                        Foto
-                    </th>
 
                     <th>
-                        Mas informacion...
+                        Foto
                     </th>
 
                     <th>
@@ -54,7 +53,7 @@
                         <td/>
                             <!-- esto es para que se suba en el formulario el id de la adopcion-->
                             <input type="hidden" class="btn btn-primary btn-block" name="id" id="id" value= "{{$adopcion->id}}"/>
-                            <p>{{$adopcion->id}}</p>          
+                            <a href="/proyectoNeoris/proyectoWEB/public/adopciones/{{ $adopcion->id }}" >{{ $adopcion->id }}</a>          
                         </td>
 
                         <td>
@@ -71,10 +70,6 @@
                         
                         <td>
                             <img src="{{ $adopcion->foto }}" width="100" height="100">
-                        </td>
-
-                        <td>
-                            <a href="/proyectoNeoris/proyectoWEB/public/adopciones/{{ $adopcion->id }}" >Mas informacion</a>
                         </td>
 
                         <td>    
